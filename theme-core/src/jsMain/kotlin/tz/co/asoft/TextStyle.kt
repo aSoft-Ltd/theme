@@ -1,8 +1,24 @@
 package tz.co.asoft
 
 import kotlinx.css.LinearDimension
-import kotlinx.css.rem
+import kotlinx.css.Color
+import kotlinx.css.FontWeight
+import kotlinx.css.FontStyle
+import kotlinx.css.TextAlign
+import kotlinx.css.properties.LineHeight
+import kotlinx.css.properties.TextDecoration
 
 data class TextStyle(
-    val fontSize: LinearDimension = 1.rem
+    val color: Color? = null,
+    val fontSize: LinearDimension? = null,
+    val fontWeight: FontWeight? = null,
+    val fontStyle: FontStyle? = null,
+    val fontFamily: String? = null,
+    val letterSpacing: LinearDimension? = null,
+    val baselineShift: BaselineShift? = null,
+    val background: Color? = null,
+    val textDecoration: TextDecoration? = null,
+    val textAlign: TextAlign? = null,
+    val textDirection: TextDirection? = null,
+    val lineHeight: LineHeight? = null
 )

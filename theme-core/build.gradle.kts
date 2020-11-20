@@ -5,39 +5,22 @@ plugins {
 }
 
 
-kotlin{
+kotlin {
     universalLib()
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(kotlin("stdlib-common"))
+                api(asoft("color-core", vers.asoft.color))
             }
         }
-
         val commonTest by getting {
             dependencies {
-                api(asoft("test","1.0.1"))
+                api(asoft("test", "1.0.1"))
             }
         }
-
-        val androidMain by getting {
-            dependencies {
-                api(kotlin("stdlib"))
-                api("androidx.ui:ui-material:${versions.androidx.ui}")
-                api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${versions.kotlinx.serialization}")
-            }
-        }
-
-        val jvmMain by getting {
-            dependencies {
-                api(kotlin("stdlib"))
-            }
-        }
-
         val jsMain by getting {
             dependencies {
-                api(kotlin("stdlib-js"))
-                api("org.jetbrains:kotlin-css-js:${versions.kotlinjs.css}")
+                api("org.jetbrains:kotlin-css-js:${vers.wrappers.css}")
             }
         }
     }

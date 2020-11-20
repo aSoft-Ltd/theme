@@ -1,7 +1,10 @@
 package tz.co.asoft
 
-data class Theme(
+/**
+ * @property T is the typography of the respective platform
+ */
+data class Theme<T>(
     val name: String,
     val color: ColorPalette,
-    val text: Typography
+    val text: T
 )
