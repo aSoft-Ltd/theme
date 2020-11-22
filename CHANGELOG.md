@@ -22,9 +22,6 @@
 - Added `fun RBuilder.ThemeProvider(...)`
 - Added `fun RBuilder.ThemeConsumer(...)`
 
-### library
-- Added the `konfig()` method, on all supported platforms
-
 ## Documentation
 - Update readme
 
