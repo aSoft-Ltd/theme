@@ -8,4 +8,4 @@ val currentTheme by lazy { MutableStateFlow(AquaGreenTheme) }
 
 val ThemeContext by lazy { createContext(currentTheme.value) }
 
-fun RBuilder.ThemeConsumer(handler: RBuilder.(Theme<Typography>) -> Unit) = ThemeContext.Consumer(handler)
+fun RBuilder.ThemeConsumer(handler: RBuilder.(ReactTheme) -> Unit) = ThemeContext.Consumer(handler)

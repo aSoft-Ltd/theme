@@ -11,11 +11,11 @@ import react.*
 
 private class ThemeProvider(p: Props) : RComponent<ThemeProvider.Props, ThemeProvider.State>(p), CoroutineScope by CoroutineScope(SupervisorJob()) {
     class Props(
-        val observerFrom: StateFlow<Theme<Typography>>,
-        val handler: RHandler<RProviderProps<Theme<Typography>>>
+        val observerFrom: StateFlow<ReactTheme>,
+        val handler: RHandler<RProviderProps<ReactTheme>>
     ) : RProps
 
-    class State(var theme: Theme<Typography>) : RState
+    class State(var theme: ReactTheme) : RState
 
     init {
         state = State(p.observerFrom.value)
@@ -38,19 +38,19 @@ private class ThemeProvider(p: Props) : RComponent<ThemeProvider.Props, ThemePro
     }
 }
 
-private fun Theme<Typography>.imposeToDocument() = document.body?.style?.also {
+private fun ReactTheme.imposeToDocument() = document.body?.style?.also {
     it.backgroundColor = backgroundColor.value
     it.color = onBackgroundColor.value
 }
 
 fun RBuilder.ThemeProvider(
-    observerFrom: StateFlow<Theme<Typography>> = currentTheme,
-    handler: RHandler<RProviderProps<Theme<Typography>>>
+    observerFrom: StateFlow<ReactTheme> = currentTheme,
+    handler: RHandler<RProviderProps<ReactTheme>>
 ) = child(ThemeProvider::class.js, ThemeProvider.Props(observerFrom, handler)) {}
 
 fun RBuilder.ThemeProvider(
-    theme: Theme<Typography>,
-    handler: RHandler<RProviderProps<Theme<Typography>>>
+    theme: ReactTheme,
+    handler: RHandler<RProviderProps<ReactTheme>>
 ) = ThemeContext.Provider(theme, handler).apply {
     theme.imposeToDocument()
 }
