@@ -1,9 +1,10 @@
 plugins {
-    id("com.android.library") version "4.1.0"
-    kotlin("multiplatform") version "1.4.10"
-    id("tz.co.asoft.library") version "0.0.7"
+    id("com.android.library")
+    kotlin("multiplatform")
+    id("tz.co.asoft.library")
+    id("io.codearte.nexus-staging")
+    signing
 }
-
 
 kotlin {
     universalLib()
@@ -25,3 +26,8 @@ kotlin {
         }
     }
 }
+
+aSoftLibrary(
+    version = vers.asoft.theme,
+    description = "A platform/framework agnostic theme engine"
+)

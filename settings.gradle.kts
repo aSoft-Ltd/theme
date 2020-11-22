@@ -18,3 +18,4 @@ pluginManagement {
 rootProject.name = "theme"
 
 include(":theme-core")
+include(":theme-react")
