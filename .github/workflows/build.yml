@@ -5,7 +5,7 @@ on:
     branches: [ dev-master ]
 
 jobs:
-  test-color-core:
+  build-theme-lib:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,4 +28,7 @@ jobs:
         working-directory: .
       - name: Building theme-react
         run: ./gradlew :theme-react:build
+        working-directory: .
+      - name: Building theme project
+        run: ./gradlew build
         working-directory: .
