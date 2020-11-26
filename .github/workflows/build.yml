@@ -26,6 +26,9 @@ jobs:
       - name: Building theme-core
         run: ./gradlew :theme-core:build
         working-directory: .
+      - name: Building theme-css
+        run: ./gradlew :theme-css:build
+        working-directory: .
       - name: Building theme-react
         run: ./gradlew :theme-react:build
         working-directory: .

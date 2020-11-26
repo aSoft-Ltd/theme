@@ -12,7 +12,7 @@ kotlin {
 }
 
 dependencies {
-    api(project(":theme-core"))
+    api(project(":theme-css"))
     api("org.jetbrains:kotlin-react:${vers.wrappers.react}")
 }
 
