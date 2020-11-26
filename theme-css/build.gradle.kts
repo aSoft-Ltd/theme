@@ -14,6 +14,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":theme-core"))
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinx.coroutines}")
                 api("org.jetbrains:kotlin-css:${vers.wrappers.css}")
             }
         }

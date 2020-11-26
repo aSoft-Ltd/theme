@@ -12,14 +12,14 @@ import tz.co.asoft.ThemeProvider.Props
 import tz.co.asoft.ThemeProvider.State
 
 @JsExport
-private class ThemeProvider<I : Any>(p: Props<I>) : RComponent<Props<I>, State<I>>(p), CoroutineScope by CoroutineScope(SupervisorJob()) {
-    class Props<I : Any>(
-        val observerFrom: StateFlow<ReactTheme<I>>,
-        val context: RContext<ReactTheme<I>>,
-        val handler: RHandler<RProviderProps<ReactTheme<I>>>
+private class ThemeProvider(p: Props) : RComponent<Props, State>(p), CoroutineScope by CoroutineScope(SupervisorJob()) {
+    class Props(
+        val observerFrom: StateFlow<ReactTheme>,
+        val context: RContext<ReactTheme>,
+        val handler: RHandler<RProviderProps<ReactTheme>>
     ) : RProps
 
-    class State<I : Any>(var theme: ReactTheme<I>) : RState
+    class State(var theme: ReactTheme) : RState
 
     init {
         state = State(p.observerFrom.value)
@@ -42,21 +42,19 @@ private class ThemeProvider<I : Any>(p: Props<I>) : RComponent<Props<I>, State<I
     }
 }
 
-private fun ReactTheme<*>.imposeToDocument() = document.body?.style?.also {
+private fun ReactTheme.imposeToDocument() = document.body?.style?.also {
     it.backgroundColor = backgroundColor.value
     it.color = onBackgroundColor.value
 }
 
 fun <I : Any> RBuilder.ThemeProvider(
-    observerFrom: StateFlow<ReactTheme<I>>,
-    context: RContext<ReactTheme<I>>,
-    handler: RHandler<RProviderProps<ReactTheme<I>>>
-) = child(ThemeProvider::class.js, Props(observerFrom, context, handler)) {}
+    observerFrom: StateFlow<ReactTheme>,
+    handler: RHandler<RProviderProps<ReactTheme>>
+) = child(ThemeProvider::class.js, Props(observerFrom, ThemeContext, handler)) {}
 
 fun <I : Any> RBuilder.ThemeProvider(
-    theme: ReactTheme<I>,
-    context: RContext<ReactTheme<I>>,
-    handler: RHandler<RProviderProps<ReactTheme<I>>>
-) = context.Provider(theme, handler).apply {
+    theme: ReactTheme,
+    handler: RHandler<RProviderProps<ReactTheme>>
+) = ThemeContext.Provider(theme, handler).apply {
     theme.imposeToDocument()
 }
