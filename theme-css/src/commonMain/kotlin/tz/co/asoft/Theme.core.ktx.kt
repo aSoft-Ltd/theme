@@ -5,20 +5,20 @@ import kotlinx.css.Color as CSSColor
 
 operator fun Color.invoke() = rgba(red.to255Int(), green.to255Int(), blue.to255Int(), alpha.toDouble())
 
-inline val Theme<Typography>.primaryColor get() = color.primary()
-inline val Theme<Typography>.primaryVariantColor get() = color.primaryVariant()
-inline val Theme<Typography>.onPrimaryColor get() = color.onPrimary()
-inline val Theme<Typography>.secondaryColor get() = color.secondary()
-inline val Theme<Typography>.secondaryVariantColor get() = color.secondaryVariant()
-inline val Theme<Typography>.onSecondaryColor get() = color.onSecondary()
-inline val Theme<Typography>.backgroundColor get() = color.background()
-inline val Theme<Typography>.onBackgroundColor get() = color.onBackground()
-inline val Theme<Typography>.backgroundVariantColor get() = color.backgroundVariant()
-inline val Theme<Typography>.onBackgroundVariantColor get() = color.onBackgroundVariant()
-inline val Theme<Typography>.surfaceColor get() = color.surface()
-inline val Theme<Typography>.onSurfaceColor get() = color.onSurface()
-inline val Theme<Typography>.errorColor get() = color.error()
-inline val Theme<Typography>.onErrorColor get() = color.onError()
+inline val CSSTheme.primaryColor get() = color.primary()
+inline val CSSTheme.primaryVariantColor get() = color.primaryVariant()
+inline val CSSTheme.onPrimaryColor get() = color.onPrimary()
+inline val CSSTheme.secondaryColor get() = color.secondary()
+inline val CSSTheme.secondaryVariantColor get() = color.secondaryVariant()
+inline val CSSTheme.onSecondaryColor get() = color.onSecondary()
+inline val CSSTheme.backgroundColor get() = color.background()
+inline val CSSTheme.onBackgroundColor get() = color.onBackground()
+inline val CSSTheme.backgroundVariantColor get() = color.backgroundVariant()
+inline val CSSTheme.onBackgroundVariantColor get() = color.onBackgroundVariant()
+inline val CSSTheme.surfaceColor get() = color.surface()
+inline val CSSTheme.onSurfaceColor get() = color.onSurface()
+inline val CSSTheme.errorColor get() = color.error()
+inline val CSSTheme.onErrorColor get() = color.onError()
 
 inline val TextStyle.clazz: RuleSet
     get() = {
@@ -33,7 +33,7 @@ inline val TextStyle.clazz: RuleSet
         this@clazz.lineHeight?.let { lineHeight = it }
     }
 
-inline val Theme<Typography>.dropdown_clazz: RuleSet
+inline val CSSTheme.dropdown_clazz: RuleSet
     get() = {
         outline = Outline.none
         color = CSSColor.inherit

@@ -15,10 +15,8 @@ data class TextStyle(
     val fontStyle: FontStyle? = null,
     val fontFamily: String? = null,
     val letterSpacing: LinearDimension? = null,
-    val baselineShift: BaselineShift? = null,
     val background: Color? = null,
     val textDecoration: TextDecoration? = null,
     val textAlign: TextAlign? = null,
-    val textDirection: TextDirection? = null,
     val lineHeight: LineHeight? = null
 )

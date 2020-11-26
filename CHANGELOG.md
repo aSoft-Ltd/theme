@@ -1,3 +1,13 @@
+# 0.0.2
+## Bug Fixes
+- Marked ThemeProvider with @JsExport to allow proper DCE
+
+## New Artifacts
+- Added `theme-css` supporting jvm and js
+
+## Dependencies
+- updated kotlin to version 1.4.20
+
 # 0.0.1
 ## Availability
 - Published to maven central
