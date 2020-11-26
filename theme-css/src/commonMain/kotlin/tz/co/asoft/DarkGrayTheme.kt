@@ -1,9 +1,15 @@
 package tz.co.asoft
 
-val DarkGrayTheme by lazy {
-    Theme(
-        name = "Dark Gray",
-        color = DarkGrayPallet,
-        text = Typography()
-    )
-}
+fun <I : Any> DarkGrayTheme(icon: I) = Theme(
+    name = "Dark Gray",
+    color = DarkGrayPallet,
+    text = Typography(),
+    icon = icon
+)
+
+fun DarkGrayTheme() = Theme(
+    name = "Dark Gray",
+    color = DarkGrayPallet,
+    text = Typography(),
+    icon = Unit
+)

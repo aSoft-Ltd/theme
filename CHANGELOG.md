@@ -1,9 +1,12 @@
-# 0.0.2
+# 0.0.2 : 2020.11.26
 ## Bug Fixes
 - Marked ThemeProvider with @JsExport to allow proper DCE
 
 ## New Artifacts
 - Added `theme-css` supporting jvm and js
+
+## New Features
+- Added Iconography to theme
 
 ## Dependencies
 - updated kotlin to version 1.4.20

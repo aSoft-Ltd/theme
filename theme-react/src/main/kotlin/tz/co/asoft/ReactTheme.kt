@@ -1,3 +1,3 @@
 package tz.co.asoft
 
-typealias ReactTheme = CSSTheme
+typealias ReactTheme<I> = CSSTheme<I>

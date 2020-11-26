@@ -1,3 +1,3 @@
 package tz.co.asoft
 
-typealias CSSTheme = Theme<Typography>
+typealias CSSTheme<I> = Theme<Typography, I>
