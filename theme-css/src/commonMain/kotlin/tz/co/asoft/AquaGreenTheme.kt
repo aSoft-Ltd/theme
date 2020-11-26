@@ -1,8 +1,7 @@
 package tz.co.asoft
 
-fun <I : Any> AquaGreenTheme(typography: Typography? = null, icon: I? = null) = Theme(
-    name = "aQua Green",
+fun AquaGreenTheme(typography: Typography? = null) = Theme(
+    name = "aQua Green [${typography?.name ?: "default"}]",
     color = AquaGreenPallet,
     text = typography ?: Typography(),
-    icon = icon ?: Unit
 )

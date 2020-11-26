@@ -1,15 +1,7 @@
 package tz.co.asoft
 
-fun <I : Any> DarkGrayTheme(icon: I) = Theme(
-    name = "Dark Gray",
+fun DarkGrayTheme(typography: Typography? = null) = Theme(
+    name = "Dark Gray [${typography?.name ?: "default"}]",
     color = DarkGrayPallet,
-    text = Typography(),
-    icon = icon
-)
-
-fun DarkGrayTheme() = Theme(
-    name = "Dark Gray",
-    color = DarkGrayPallet,
-    text = Typography(),
-    icon = Unit
+    text = typography ?: Typography(),
 )
