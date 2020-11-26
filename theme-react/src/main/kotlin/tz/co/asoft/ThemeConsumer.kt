@@ -1,6 +1,8 @@
 package tz.co.asoft
 
 import react.RBuilder
-import react.RContext
+import react.createContext
 
-fun <I : Any> RBuilder.ThemeConsumer(context: RContext<ReactTheme<I>>, handler: RBuilder.(ReactTheme<I>) -> Unit) = context.Consumer(handler)
+val ThemeContext by lazy { createContext(currentTheme.value) }
+
+fun RBuilder.ThemeConsumer(handler: RBuilder.(ReactTheme) -> Unit) = ThemeContext.Consumer(handler)

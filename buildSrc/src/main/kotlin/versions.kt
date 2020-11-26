@@ -1,7 +1,7 @@
 object vers {
     object asoft {
         val color = "0.0.1"
-        val theme = "0.0.2"
+        val theme = "0.0.3"
     }
 
     object wrappers {
