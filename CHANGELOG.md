@@ -1,3 +1,7 @@
+# 0.0.3 : 2020.11.26
+## Enhancements
+- Removed Iconography as it makes the syntax cumbersome
+
 # 0.0.2 : 2020.11.26
 ## Bug Fixes
 - Marked ThemeProvider with @JsExport to allow proper DCE
