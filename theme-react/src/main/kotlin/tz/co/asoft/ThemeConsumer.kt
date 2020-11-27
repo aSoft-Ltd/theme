@@ -5,4 +5,4 @@ import react.createContext
 
 val ThemeContext by lazy { createContext(currentTheme.value) }
 
-fun RBuilder.ThemeConsumer(handler: RBuilder.(ReactTheme) -> Unit) = ThemeContext.Consumer(handler)
+inline fun RBuilder.ThemeConsumer(noinline handler: RBuilder.(ReactTheme) -> Unit) = ThemeContext.Consumer(handler)

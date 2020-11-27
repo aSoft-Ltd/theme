@@ -1,3 +1,7 @@
+# 0.0.4 : 2020.11.27
+## Bug fixes
+- Fixed not supporting IR backend
+
 # 0.0.3 : 2020.11.26
 ## Enhancements
 - Removed Iconography as it makes the syntax cumbersome

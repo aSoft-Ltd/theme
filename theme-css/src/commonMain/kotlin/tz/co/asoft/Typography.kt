@@ -3,7 +3,7 @@ package tz.co.asoft
 import kotlinx.css.rem
 
 data class Typography(
-    val name: String = "default",
+    val name: String = "Basic",
     val h1: TextStyle = TextStyle(fontSize = 2.rem),
     val h2: TextStyle = TextStyle(fontSize = 1.5.rem),
     val h3: TextStyle = TextStyle(fontSize = 1.17.rem),

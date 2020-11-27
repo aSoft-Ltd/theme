@@ -14,6 +14,7 @@ kotlin {
 dependencies {
     api(project(":theme-css"))
     api("org.jetbrains:kotlin-react:${vers.wrappers.react}")
+    api("org.jetbrains:kotlin-react-dom:${vers.wrappers.react}")
 }
 
 aSoftLibrary(

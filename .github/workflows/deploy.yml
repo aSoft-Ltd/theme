@@ -101,7 +101,7 @@ jobs:
         run: ./gradlew build
         working-directory: .
 
-  publish-theme-core:
+  publish-artifacts:
     runs-on: ubuntu-latest
     needs: [build-theme-lib]
     steps:
@@ -123,71 +123,11 @@ jobs:
       - name: Publishing theme-core
         run: ./gradlew :theme-core:publish
         working-directory: .
-
-  publish-theme-css:
-    runs-on: ubuntu-latest
-    needs: [build-theme-lib]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Cache Gradle
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-      - name: Making gradlew executable
-        run: chmod +x ./gradlew
-        working-directory: .
       - name: Publishing theme-css
         run: ./gradlew :theme-css:publish
         working-directory: .
-
-  publish-theme-react:
-    runs-on: ubuntu-latest
-    needs: [build-theme-lib]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Cache Gradle
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-      - name: Making gradlew executable
-        run: chmod +x ./gradlew
-        working-directory: .
       - name: Publishing theme-react
         run: ./gradlew :theme-react:publish
-        working-directory: .
-
-  publish-close-and-release-theme-lib:
-    runs-on: ubuntu-latest
-    needs: [publish-theme-core,publish-theme-css,publish-theme-react]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Cache Gradle
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-      - name: Making gradlew executable
-        run: chmod +x ./gradlew
         working-directory: .
       - name: Closing and Releasing Repositories
         run: ./gradlew closeAndReleaseRepository
