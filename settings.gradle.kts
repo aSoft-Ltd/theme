@@ -20,3 +20,4 @@ rootProject.name = "theme"
 include(":theme-core")
 include(":theme-css")
 include(":theme-react")
+include(":sample:react-sample")
