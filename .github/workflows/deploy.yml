@@ -130,6 +130,6 @@ jobs:
         run: ./gradlew :theme-react:publish
         working-directory: .
       - name: Closing and Releasing Repositories
-        run: ./gradlew closeAndReleaseRepository
+        run: ./gradlew :theme-react:closeAndReleaseRepository
         working-directory: .
 
