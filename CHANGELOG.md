@@ -1,3 +1,10 @@
+# 0.0.50 : 2021.11.25
+- Updated gradle from 6.7.1 to 6.8.1
+- Updated builders from 1.0.0 to 1.3.0
+- Updated color from 0.0.4 to 0.0.50
+- Updated kotlin-react from 17.0.0-pre.129-kotlin-1.4.20 to 17.0.1-pre.141-kotlin-1.4.21
+- Updated kotlin-styled from 5.2.0-pre.129-kotlin-1.4.20 to 5.2.0-pre.141-kotlin-1.4.21
+
 # 0.0.4 : 2020.11.27
 ## Bug fixes
 - Fixed not supporting IR backend

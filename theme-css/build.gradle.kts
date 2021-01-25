@@ -6,22 +6,19 @@ plugins {
 }
 
 kotlin {
-    jvm { targetJava("1.8") }
-    js(IR) {
-        browser {}
-    }
+    multiplatformLib()
     sourceSets {
         val commonMain by getting {
             dependencies {
                 api(project(":theme-core"))
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinx.coroutines}")
-                api("org.jetbrains:kotlin-css:${vers.wrappers.css}")
+                api(asoft("color-css", vers.asoft.color))
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${vers.kotlinx.coroutines}")
             }
         }
     }
 }
 
-aSoftLibrary(
+aSoftOSSLibrary(
     version = vers.asoft.theme,
     description = "A platform/framework agnostic theme engine"
 )
