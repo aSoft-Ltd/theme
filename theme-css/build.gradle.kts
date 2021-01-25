@@ -10,12 +10,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(asoft("color-core", vers.asoft.color))
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                api(asoft("test-core", vers.asoft.test))
+                api(project(":theme-core"))
+                api(asoft("color-css", vers.asoft.color))
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${vers.kotlinx.coroutines}")
             }
         }
     }

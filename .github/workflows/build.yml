@@ -2,10 +2,10 @@ name: Build & Test
 
 on:
   pull_request:
-    branches: [ dev-master ]
+    branches: [ master-dev ]
 
 jobs:
-  build-theme-lib:
+  build-project:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,12 +23,6 @@ jobs:
       - name: Making gradlew executable
         run: chmod +x ./gradlew
         working-directory: .
-      - name: Building theme-core
-        run: ./gradlew :theme-core:build
-        working-directory: .
-      - name: Building theme-react
-        run: ./gradlew :theme-react:build
-        working-directory: .
-      - name: Building theme project
+      - name: Building project
         run: ./gradlew build
         working-directory: .

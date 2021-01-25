@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import react.*
+import tz.co.asoft.ThemeProvider.Props
+import tz.co.asoft.ThemeProvider.State
 
-private class ThemeProvider(p: Props) : RComponent<ThemeProvider.Props, ThemeProvider.State>(p), CoroutineScope by CoroutineScope(SupervisorJob()) {
-    class Props(
-        val observerFrom: StateFlow<ReactTheme>,
-        val handler: RHandler<RProviderProps<ReactTheme>>
-    ) : RProps
+@JsExport
+class ThemeProvider(p: Props) : RComponent<Props, State>(p), CoroutineScope by CoroutineScope(SupervisorJob()) {
+    class Props(val observerFrom: StateFlow<ReactTheme>) : RProps
 
     class State(var theme: ReactTheme) : RState
 
@@ -21,21 +21,16 @@ private class ThemeProvider(p: Props) : RComponent<ThemeProvider.Props, ThemePro
         state = State(p.observerFrom.value)
     }
 
-    override fun componentDidMount() {
-        launch {
-            props.observerFrom.collect {
-                setState { theme = it }
-            }
+    override fun componentDidMount(): dynamic = launch {
+        props.observerFrom.collect {
+            it.imposeToDocument()
+            setState { theme = it }
         }
     }
 
-    override fun componentWillUnmount() {
-        cancel()
-    }
+    override fun componentWillUnmount(): dynamic = cancel()
 
-    override fun RBuilder.render(): dynamic = ThemeContext.Provider(state.theme, props.handler).apply {
-        state.theme.imposeToDocument()
-    }
+    override fun RBuilder.render(): dynamic = ThemeProvider(state.theme) { props.children() }
 }
 
 private fun ReactTheme.imposeToDocument() = document.body?.style?.also {
@@ -44,13 +39,12 @@ private fun ReactTheme.imposeToDocument() = document.body?.style?.also {
 }
 
 fun RBuilder.ThemeProvider(
-    observerFrom: StateFlow<ReactTheme> = currentTheme,
-    handler: RHandler<RProviderProps<ReactTheme>>
-) = child(ThemeProvider::class.js, ThemeProvider.Props(observerFrom, handler)) {}
-
-fun RBuilder.ThemeProvider(
     theme: ReactTheme,
     handler: RHandler<RProviderProps<ReactTheme>>
-) = ThemeContext.Provider(theme, handler).apply {
-    theme.imposeToDocument()
-}
+) = ThemeContext.Provider(theme, handler)
+
+fun RBuilder.ThemeProvider(
+    observerFrom: StateFlow<ReactTheme> = currentTheme,
+    handler: RBuilder.() -> Unit
+) = child(ThemeProvider::class.js, Props(observerFrom), handler)
+

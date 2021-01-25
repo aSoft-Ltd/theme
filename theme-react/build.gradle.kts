@@ -6,17 +6,18 @@ plugins {
 }
 
 kotlin {
-    js(IR) {
-        browser()
+    js(IR) { library(forNodeJs = false) }
+    sourceSets {
+        val main by getting {
+            dependencies {
+                api(project(":theme-css"))
+                api("org.jetbrains:kotlin-react:${vers.wrappers.react}")
+            }
+        }
     }
 }
 
-dependencies {
-    api(project(":theme-core"))
-    api("org.jetbrains:kotlin-react:${vers.wrappers.react}")
-}
-
-aSoftLibrary(
+aSoftOSSLibrary(
     version = vers.asoft.theme,
     description = "A theme engine for kotlin/react"
 )
