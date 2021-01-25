@@ -3,8 +3,6 @@ package tz.co.asoft
 import kotlinx.css.*
 import kotlinx.css.Color as CSSColor
 
-operator fun Color.invoke() = rgba(red.to255Int(), green.to255Int(), blue.to255Int(), alpha.toDouble())
-
 inline val CSSTheme.primaryColor get() = color.primary()
 inline val CSSTheme.primaryVariantColor get() = color.primaryVariant()
 inline val CSSTheme.onPrimaryColor get() = color.onPrimary()

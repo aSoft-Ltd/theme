@@ -1,5 +1,4 @@
 plugins {
-    id("com.android.library")
     kotlin("multiplatform")
     id("tz.co.asoft.library")
     id("io.codearte.nexus-staging")
@@ -7,7 +6,7 @@ plugins {
 }
 
 kotlin {
-    universalLib()
+    multiplatformLib()
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -16,18 +15,13 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                api(asoft("test", "1.0.1"))
-            }
-        }
-        val jsMain by getting {
-            dependencies {
-                api("org.jetbrains:kotlin-css-js:${vers.wrappers.css}")
+                api(asoft("test-core", vers.asoft.test))
             }
         }
     }
 }
 
-aSoftLibrary(
+aSoftOSSLibrary(
     version = vers.asoft.theme,
     description = "A platform/framework agnostic theme engine"
 )
