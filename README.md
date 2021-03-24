@@ -1,4 +1,4 @@
-# aSoft Theme
+# Theme
 ![badge][badge-maven] ![badge][badge-mpp] ![badge][badge-android] ![badge][badge-js] ![badge][badge-jvm]
 
 A kotlin multiplatform theme engine

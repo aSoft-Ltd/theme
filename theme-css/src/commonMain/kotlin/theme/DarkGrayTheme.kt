@@ -1,4 +1,6 @@
-package tz.co.asoft
+package theme
+
+import theme.palletes.DarkGrayPallet
 
 fun DarkGrayTheme(typography: Typography? = null) = Theme(
     name = "Dark Gray [${typography?.name ?: "default"}]",

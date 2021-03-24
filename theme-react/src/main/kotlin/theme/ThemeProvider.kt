@@ -1,4 +1,4 @@
-package tz.co.asoft
+package theme
 
 import kotlinx.browser.document
 import kotlinx.coroutines.CoroutineScope
@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import react.*
-import tz.co.asoft.ThemeProvider.Props
-import tz.co.asoft.ThemeProvider.State
+import theme.ThemeProvider.Props
+import theme.ThemeProvider.State
 
 @JsExport
 class ThemeProvider(p: Props) : RComponent<Props, State>(p), CoroutineScope by CoroutineScope(SupervisorJob()) {

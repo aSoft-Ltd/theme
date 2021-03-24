@@ -8,6 +8,8 @@ import react.dom.div
 import react.dom.render
 import styled.css
 import styled.styledButton
+import theme.*
+import theme.palletes.DarkGrayPallet
 
 fun main() {
     currentTheme.value = AquaGreenTheme()
