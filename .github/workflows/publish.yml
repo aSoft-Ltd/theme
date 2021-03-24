@@ -1,4 +1,4 @@
-name: Build & Test
+name: Build & Deploy
 
 on:
   push:
@@ -11,8 +11,8 @@ env:
   ASOFT_NEXUS_USERNAME: ${{ secrets.ASOFT_NEXUS_USERNAME }}
 
 jobs:
-  publish-artifacts:
-    runs-on: ubuntu-latest
+  color-core:
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -29,9 +29,9 @@ jobs:
       - name: Making gradlew executable
         run: chmod +x ./gradlew
         working-directory: .
-      - name: Publishing project
+      - name: Publishing
         run: ./gradlew publish
         working-directory: .
-      - name: Closing and Releasing Repositories
+      - name: Closing and Releasing repositories
         run: ./gradlew :theme-core:closeAndReleaseRepository
         working-directory: .

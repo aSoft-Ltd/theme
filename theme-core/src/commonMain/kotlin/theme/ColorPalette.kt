@@ -1,4 +1,6 @@
-package tz.co.asoft
+package theme
+
+import color.Color
 
 data class ColorPalette(
     val primary: Color,

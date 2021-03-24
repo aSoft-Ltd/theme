@@ -1,4 +1,4 @@
-package tz.co.asoft
+package theme
 
 import kotlinx.css.LinearDimension
 import kotlinx.css.Color

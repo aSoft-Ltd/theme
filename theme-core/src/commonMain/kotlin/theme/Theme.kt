@@ -1,4 +1,4 @@
-package tz.co.asoft
+package theme
 
 /**
  * @property T is the typography of the respective platform
