@@ -1,6 +1,7 @@
-@file:Suppress("PackageDirectoryMismatch")
+package theme.palletes
 
-package tz.co.asoft
+import color.Color
+import theme.ColorPalette
 
 val DarkGrayPallet = ColorPalette(
     primary = Color(0xFF1F3D4C),

@@ -7,6 +7,10 @@ plugins {
 
 kotlin {
     multiplatformLib()
+    iosArm64()
+    iosArm32()
+    iosX64()
+
     sourceSets {
         val commonMain by getting {
             dependencies {

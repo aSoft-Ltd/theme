@@ -4,9 +4,9 @@ object vers {
 
     object asoft {
         val builders = "1.3.0"
-        val color = "0.0.20"
-        val theme = "0.0.50"
-        val test = "1.1.10"
+        val color = "0.0.30"
+        val theme = "0.0.60"
+        val test = "1.1.20"
     }
 
     object kotlinx {
