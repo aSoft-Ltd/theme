@@ -1,3 +1,7 @@
+# 0.0.70 : 2021.05.02
+- Upgraded builders from 1.3.24 to 1.3.30
+- Supported kotlin 1.5.0
+
 # 0.0.60 : 2021.03.24
 
 - Changed package name from `tz.co.asoft` to `theme`
