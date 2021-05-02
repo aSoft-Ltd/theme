@@ -135,7 +135,7 @@ A react specific artifact is available for targeting `kotlin-react` specifically
 
 ```kotlin
 dependencies {
-    implementation("tz.co.asoft:theme-react:0.0.60") // please use the latest version possible
+    implementation("tz.co.asoft:theme-react:0.0.70") // please use the latest version possible
 }
 ```
 
@@ -146,7 +146,7 @@ dependencies {
 We are working on porting the theme lib to jetpack compose as well, that way you can have one theme on web, android and
 desktop
 
-[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/theme-core/0.0.60?style=flat
+[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/theme-core/0.0.70?style=flat
 
 [badge-mpp]: https://img.shields.io/badge/kotlin-multiplatform-blue?style=flat
 
